@@ -1,3 +1,42 @@
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, push } from 'firebase/database';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCJ6ORzqircKaX4xrnaKvNR0Z7oAQdg25s",
+  authDomain: "projectoo-1839a.firebaseapp.com",
+  projectId: "projectoo-1839a",
+  storageBucket: "projectoo-1839a.appspot.com",
+  messagingSenderId: "1055205523542",
+  appId: "1:1055205523542:web:345bd6f945481ec752fbf7",
+  measurementId: "G-K1LLZZGF17"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Verifica se o código está sendo executado no navegador ou no Node.js
+if (typeof window !== 'undefined') {
+  console.log('Este código está sendo executado no navegador!');
+} else {
+  console.log('Este código está sendo executado no ambiente Node.js.');
+}
+
+// Verifica se o ambiente é o navegador
+if (typeof window !== 'undefined') {
+  // Coloque aqui o código que depende do ambiente do navegador
+  // Por exemplo:
+  window.alert('Este código está sendo executado no navegador!');
+} else {
+  // Se não for o navegador, faça algo diferente
+  console.log('Este código não está sendo executado no navegador.');
+}
+
+
+// Obtendo uma referência para o banco de dados
+const database = getDatabase(app);
+
+
+
 // Abstração: Classe abstrata Veiculo
 class Veiculo {
     constructor(cor, ano) {
